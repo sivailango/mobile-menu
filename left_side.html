@@ -16,7 +16,7 @@
 			border-bottom: 1px solid #ccc;
 		}
 
-		.mobile-menu, .container {
+		.mobile-menu, .container, .left-container {
 		    -webkit-transition: all 0.3s ease-out;
 		    -moz-transition: all 0.3s ease-out;
 		    -ms-transition: all 0.3s ease-out;
@@ -75,6 +75,10 @@
 			margin-left: 200px !important;
 		}
 
+		.ml-0 {
+			margin-left: 0px !important;
+		}
+
 		@media screen and (max-width: 480px) {
 
 			.mobile-menu {
@@ -82,7 +86,7 @@
 			}
 
 			.left-container {
-				display: none;
+				margin-left: -200px;
 			}
 
 			.container {
@@ -104,7 +108,7 @@
 </head>
 <body>
 
-	<div class="mobile-menu">
+	<div class="mobile-menu" onclick="showMenu()">
 		<span>&equiv;</span>
 	</div>
 
@@ -126,28 +130,26 @@
 	</div>
 
 	<script type="text/javascript" src="js/jquery.js"></script>
-	<script>
+	<script type="text/javascript">
 
-		$(document).ready(function() {
+		var leftContainer = $('.left-container'),
+			mobileMenu = $('.mobile-menu'),
+			container = $('.container');
 
-			var leftContainer = $('.left-container'),
-				container = $('.container');
+		function showMenu() {
 
-			$('.mobile-menu').on('click', function() {
-				
-				leftContainer.toggle();
+			if(leftContainer.hasClass('ml-0')) {
+				leftContainer.removeClass('ml-0');
+				mobileMenu.removeClass('ml-200');
+				container.removeClass('ml-200');
 
-				if(leftContainer.is(':hidden')) {
-					$('.mobile-menu').removeClass('ml-200');
-					container.removeClass('ml-200');
-				} else {
-					$('.mobile-menu').addClass('ml-200');
-					container.addClass('ml-200');
-				}
-
-			});
-
-		});
+			} else {
+				leftContainer.addClass('ml-0');
+				mobileMenu.addClass('ml-200');
+				container.addClass('ml-200');
+			}
+			
+		}
 
 	</script>
 	
