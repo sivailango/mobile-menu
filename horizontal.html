@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Responsive web design techniques</title>
+
+    <style>
+
+        * {
+          margin: 0;
+          padding: 0;
+        }
+
+        .nav-bar {
+            width:100%;
+            background:#222;
+        }
+        .nav-hold {
+            overflow:hidden;
+        }
+        .nav-logo {
+            float:left;
+            display:block;
+            padding:20px 10px;
+            color:#f9f9f9;
+            font-weight:600;
+            text-decoration: none;
+        }
+        .nav-list {
+            float:right;
+            list-style: none;
+        }
+        .nav-list li {
+            float:left;
+        }
+        .nav-list li a {
+            display:block;
+            padding:20px 10px;
+            color:#f9f9f9;
+            text-decoration: none;
+        }
+
+        .nav-list li a:hover {
+            background-color: red;  
+        }
+
+        .nav-menu {
+            display:none;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:767px) {
+
+            .nav-menu {
+                float:right;
+                color:#f9f9f9;
+                display:block;
+                padding:20px 10px;
+            }
+            .nav-list {
+                display:none;
+            }
+            .nav-open {
+                float:left;
+                width:100%;
+                display:block;
+            }
+            .nav-list li {
+                width:100%;
+            }
+            .nav-list li a {
+                display:block;
+                padding:20px 10px;
+                color:#f9f9f9;
+                width:100%;
+            }
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <nav class="nav-bar">
+        <div class="nav-hold">
+            <a href="#" class="nav-logo">My awesome logo</a>
+            <a id="nav-menu" class="nav-menu">
+              &#9776;
+            </a>
+            <ul class="nav-list" id="nav">
+                <li><a href="#about-me">About me</a></li>
+                <li><a href="#cat-pictures">Cat pictures</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#lorem-ipsum">Lorem Ipsum</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container">
+    </div>
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            var n = '#nav'
+            $('#nav-menu').click(function() {
+                if ($(n).hasClass('nav-open')) {
+                    $(n).removeClass('nav-open');
+                }
+                else {
+                    $(n).addClass('nav-open');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

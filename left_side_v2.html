@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <title>Side Menu &ndash; Layout Examples &ndash; Pure</title>
+
+    <style type="text/css">
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #layout,
+        #menu,
+        .menu-link {
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            -ms-transition: all 0.2s ease-out;
+            -o-transition: all 0.2s ease-out;
+            transition: all 0.2s ease-out;
+        }
+
+
+        #menu {
+            margin-left: -150px;
+            width: 150px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 1000; 
+            background: #191818;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        #menu a {
+            color: #fff;
+            border: none;
+            padding: 0.6em 0 0.6em 0.6em;
+        }
+
+        #menu .pure-menu ul {
+            border-top: 1px solid #333;
+        }
+
+        #menu .pure-menu-heading {
+            background: #1f8dd6;
+        }
+
+        .pure-menu > ul {
+            position: relative;
+            list-style: none;
+            background: transparent;
+        }
+        .pure-menu a, .pure-menu .pure-menu-heading {
+            display: block;
+            color: inherit;
+            line-height: 1.5em;
+            padding: 5px 20px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .pure-menu .pure-menu-heading {
+            font-size: 110%;
+            margin: 0;
+            color: #fff !important;
+            text-transform: uppercase;
+            border-bottom: 1px solid #dfdfdf;
+        }
+        .pure-menu a {
+            border: 1px solid transparent;
+            border-left: 0;
+            border-right: 0;
+        }
+        .pure-menu li a:hover, .pure-menu li a:focus {    
+            background: #333;
+        }
+
+        .menu-link {
+            position: fixed;
+            display: block;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+            background: rgba(0,0,0,0.7);
+            font-size: 30px;
+            z-index: 10;
+            padding: 5px 10px;
+            color: #fff !important;
+        }
+
+        .menu-link:hover,
+        .menu-link:focus {
+            background: #000;
+        }
+
+        #layout {
+            padding-left: 150px; 
+            left: 0;
+        }
+        #menu {
+            left: 150px;
+        }
+        .menu-link {
+            left: 150px;
+            display: none;
+        }
+
+        @media screen and (max-width: 480px) {
+
+            #layout {
+                padding-left: 0;
+            }
+            #layout.active #main {
+                margin-left: 150px;
+            }
+            #layout #main {
+                left: 0;
+            } 
+            #layout.active #menu {
+                left: 150px;
+                width: 150px;
+            }
+            #menu {
+                left: 0;
+            }
+            #layout.active .menu-link {
+                left: 150px;
+            }
+            .menu-link {
+                left: 0;
+                display: block;
+            }
+        }
+
+    </style>  
+
+</head>
+<body>
+
+    <div id="layout">
+        <div id="menuLink" class="menu-link">
+            <span>&equiv;</span>
+        </div>
+        <div id="menu">
+            <div class="pure-menu">
+                <a class="pure-menu-heading" href="#">Company</a>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="main">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius est eum cumque. Perspiciatis sed at optio, assumenda harum nihil maxime nemo? Nobis sint sapiente totam sequi soluta minus, assumenda adipisci!
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script>
+
+        $(document).ready(function() {
+
+            var layout = $('#layout'),
+                menu   = $('#menu'),
+                menuLink = $('#menuLink');
+
+            menuLink.on('click', function(e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                layout.toggleClass('active');
+                menu.toggleClass('active');
+            });               
+
+        });    
+
+    </script>  
+
+</body>
+</html>

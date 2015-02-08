@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Index</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<style>
+	:focus { outline: 0 !important; }
+		input:focus { outline: 0 !important; }
+		::-moz-focus-inner { border: 0 !important; }
+		a, a:hover, a:active, a:focus { outline: 0 !important; }
+
+		a {
+			color: #5BA051;
+		}
+		a:hover, a:focus {
+			color: #5BA051;
+		}
+
+		.container-fluid {
+			padding-right: 20px;
+			padding-top: 20px;
+			height: 100%;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+		.container-padding {
+			padding: 0;
+		}
+		.container-fluid > div,
+		.container-fluid > div > div {
+			height: 100%;
+		}
+		.row-fluid.with-menu-bar {
+			padding-left: 400px;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+		.container-padding .row-fluid.ng-scope:not(.with-menu-bar) {
+			padding-left: 200px;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+
+		.left-bar {
+			z-index: 1030;
+			background-color: #232b2d;
+			width: 200px;
+			height: 100%;
+			position: fixed;
+			overflow: auto;
+			-ms-scrollbar-base-color: #33373b;
+		    scrollbar-base-color: #33373b;
+		    -ms-scrollbar-track-color: #43484d;
+		    scrollbar-track-color: #43484d;
+		}
+		.left-bar .left-bar-inner {
+			overflow-y: auto;
+			height: 100%;
+			min-height: 632px;
+			position: relative;
+		}
+		.left-bar .brand {
+			display: inline-block;
+			width: 100%;
+			color: #919ba6;
+			font-size: 13px;
+			font-weight: bold;
+			text-decoration: none;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+		.left-bar .menu-title {
+			display: inline-block;
+			width: 100%;
+			color: #5f696d;
+			font-size: 9px;
+			font-weight: 700;
+			text-decoration: none;
+			line-height: 40px;
+			padding: 0 20px;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			text-transform: uppercase;
+		}
+		.left-bar ul {
+			margin: 0;
+			list-style: none;
+		}
+		.left-bar a {
+			display: inline-block;
+			width: 100%;
+			color: #788689;
+			font-size: 13px;
+			font-weight: 700;
+			text-decoration: none;
+			line-height: 40px;
+			padding: 0 20px;
+			-webkit-transition: all 0.1s linear;
+			-moz-transition: all 0.1s linear;
+			-o-transition: all 0.1s linear;
+			transition: all 0.1s linear;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+		.left-bar li:not(.active):not(.active-sub) a:hover {
+			color: #9fb1b5;
+		}
+		.left-bar li.active {
+			background-color: #1b2123;
+			-webkit-transition: all 0s linear;
+			-moz-transition: all 0s linear;
+			-o-transition: all 0s linear;
+			transition: all 0s linear;
+		}
+
+		.left-bar .brand i,
+		.left-bar a i,
+		.left-bar a .menu-icon {
+			font-size: 16px;
+			font-weight: normal;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			width: 28px;
+			display: inline-block;
+		}
+		.menu-bar {
+			z-index: 1020;
+			padding-left: 200px;
+			background-color: #F9F9F9;
+			width: 200px;
+			height: 100%;
+			position: fixed;
+			border-right: 1px solid #EEEFF2;
+		}
+		.lock-screen {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 1025;
+			background: rgba(255,255,255,0);
+			opacity: 0;
+		}
+
+		/* responsive menu */
+		/*=====================*/
+
+
+
+
+		/* responsive design
+		====================================================================== */
+
+		/* mobile menu */
+		.mobile-menu {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			background: transparent;
+			z-index: 1050;
+			display: none;
+		}
+		.mobile-menu > button {
+			background: transparent;
+			border: none;
+			padding: 10px;
+			padding-left: 15px;
+			font-size: 28px;
+			color: #43484d;
+		}
+		.mobile-menu > button:hover {
+			color: #222;
+		}
+		.mobile-menu > button:active {
+			color: #222;
+			padding-bottom: 13px;
+			-webkit-transition: all 0.1s linear;
+			-moz-transition: all 0.1s linear;
+			-o-transition: all 0.1s linear;
+			transition: all 0.1s linear;
+		}
+
+		/* max 1000px */
+		@media only screen and (max-width: 1000px) {
+		 	.user-view {
+		 		left: 0;
+		 	}
+		 	.left-bar {
+		 		margin-left: -200px;
+		 	}
+		 	.container-padding .row-fluid.ng-scope:not(.with-menu-bar) {
+		 		padding-left: 0px;
+		 	}
+		 	.mobile-menu {
+		 		display: block;
+		 	}
+		 	
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div class="mobile-menu">
+		<button title="Show Menu" class="show-mobile-menu" onclick="showMenu(true)">
+			<i class="fa fa-reorder"></i>
+		</button>
+	</div>
+	<div class="lock-screen" onclick="showMenu(false)" style="left: 200px; display: none;"></div>
+
+	<div class="left-bar no-select">
+		<div class="left-bar-inner">
+			<div class="menu-title mb-30">
+				<h3>Logo</h3>
+			</div>
+			<ul class="brand list-unstyled">
+				<li>
+					<a href="dashboard.html">
+						<i class="fa fa-dashboard t-16"></i>
+						Dashboard
+					</a>
+				</li>
+				<li>
+					<a href="index.html">
+						<i class="fa fa-gear t-16"></i>
+						Account Details</a>
+				</li>
+				<li>
+					<a href="profile.html">
+						<i class="fa fa-user t-16"></i>
+						Profile</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-bell-o t-16"></i>
+						Notifications
+						</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-fax t-16"></i>
+						Contact Us</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-power-off t-16"></i>
+						Log out</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="container-fluid container-padding" style="padding-left: 0px;">
+		<div class="row-fluid ng-scope">
+			<div class="span-12 no-select" style="width: 100%;">
+				<div class="widget-no-padding">	
+					<div>
+					
+					</div>				
+				</div>
+			</div>				
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+
+	<script type="text/javascript">
+
+		function showMenu(show) {
+
+			if (show) {
+				$(".left-bar").css("margin-left", "-200px");
+				$(".left-bar").animate({ "margin-left": "0px" }, 400);
+				
+				$(".container-padding .row-fluid.ng-scope:not(.with-menu-bar)").addClass("content-box");
+				$(".container-padding .row-fluid.ng-scope:not(.with-menu-bar)").animate({ 
+					"padding-left": "200px",
+					"margin-right": "-200px"
+				}, 400);
+				
+				$(".mobile-menu").fadeOut(500);
+				$(".lock-screen").show();
+
+			} else {
+				$(".left-bar").animate({ "margin-left": "-200px" }, 400, function() {
+					$(this).css("margin-left", "");
+				});
+				
+				$(".container-padding .row-fluid.ng-scope:not(.with-menu-bar)").animate({ 
+					"padding-left": "0px",
+					"margin-right": "0px"
+				}, 400, function() {
+					//$(this).css("padding-left", "");
+					//$(this).css("margin-right", "");
+					$(".container-padding .row-fluid.ng-scope:not(.with-menu-bar)").removeClass("content-box");
+					$(".mobile-menu").fadeIn(500);
+				});
+				$(".lock-screen").hide();
+			}
+		}
+
+	</script>
+
+</body>
+</html>

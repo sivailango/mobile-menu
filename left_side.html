@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Side Menu</title>
+
+	<style type="text/css">
+
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		.brand {
+			padding: 20px 10px;
+			border-bottom: 1px solid #ccc;
+		}
+
+		.mobile-menu, .container {
+		    -webkit-transition: all 0.3s ease-out;
+		    -moz-transition: all 0.3s ease-out;
+		    -ms-transition: all 0.3s ease-out;
+		    -o-transition: all 0.3s ease-out;
+		    transition: all 0.3s ease-out;
+		}
+		
+		.mobile-menu {
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 5px 10px;
+			z-index: 2;
+			font-size: 30px;
+			display: none;
+			background-color: #555;
+			cursor: pointer;
+		}
+
+		.left-container {
+			background-color: #e3e3e3;
+			width: 200px;
+			height: 100%;
+			position: fixed;
+			z-index: 1;			
+			border-right: 1px solid #c9c9c9;
+		}
+
+		.left-container ul.left-menu {
+			list-style: none;
+		}
+
+		ul.left-menu li a {
+			position: relative;
+			top: 0;
+			left: 0;			
+			color: #555;
+			text-decoration: none;
+			display: block;
+			padding: 15px 10px;
+			font-size: 14px;
+			border-bottom: 1px solid #444;
+		}
+
+		ul.left-menu li a:hover {
+			background-color: #555;
+			color: #fff;
+		}
+
+		.container {
+			margin-left: 200px;
+			padding: 10px 20px;
+		}
+
+		.ml-200 {
+			margin-left: 200px !important;
+		}
+
+		@media screen and (max-width: 480px) {
+
+			.mobile-menu {
+				display: block;
+			}
+
+			.left-container {
+				display: none;
+			}
+
+			.container {
+				margin-left: 0;
+			}
+
+		}
+
+		@media screen and (min-width: 480px) {
+
+			.left-container {
+				visibility: visible;
+			}
+
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div class="mobile-menu">
+		<span>&equiv;</span>
+	</div>
+
+	<div class="left-container">
+		<div class="brand">
+			<h3>Brand</h3>
+		</div>
+		<ul class="left-menu">
+			<li><a href="#">Menu 1</a></li>
+			<li><a href="#">Menu 2</a></li>
+			<li><a href="#">Menu 3</a></li>
+			<li><a href="#">Menu 4</a></li>
+		</ul>
+		
+	</div>
+
+	<div class="container">
+		<h1>Welcome</h1>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script>
+
+		$(document).ready(function() {
+
+			var leftContainer = $('.left-container'),
+				container = $('.container');
+
+			$('.mobile-menu').on('click', function() {
+				
+				leftContainer.toggle();
+
+				if(leftContainer.is(':hidden')) {
+					$('.mobile-menu').removeClass('ml-200');
+					container.removeClass('ml-200');
+				} else {
+					$('.mobile-menu').addClass('ml-200');
+					container.addClass('ml-200');
+				}
+
+			});
+
+		});
+
+	</script>
+	
+</body>
+</html>
