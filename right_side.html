@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Side Menu</title>
+
+	<style type="text/css">
+
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		.brand {
+			padding: 20px 10px;
+			border-bottom: 1px solid #ccc;
+		}
+
+		.mobile-menu, .container, .right-container {
+		    -webkit-transition: all 0.3s ease-out;
+		    -moz-transition: all 0.3s ease-out;
+		    -ms-transition: all 0.3s ease-out;
+		    -o-transition: all 0.3s ease-out;
+		    transition: all 0.3s ease-out;
+		}
+		
+		.mobile-menu {
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 5px 10px;
+			z-index: 2;
+			font-size: 30px;
+			display: none;
+			background-color: #555;
+			cursor: pointer;
+		}
+
+		.right-container {
+			background-color: #e3e3e3;
+			width: 200px;
+			height: 100%;
+			float: right;
+			top: 0;
+			right: 0;
+			position: fixed;
+			z-index: 1;			
+			border-right: 1px solid #c9c9c9;
+		}
+
+		.right-container ul.right-menu {
+			list-style: none;
+		}
+
+		ul.right-menu li a {
+			position: relative;
+			top: 0;
+			left: 0;			
+			color: #555;
+			text-decoration: none;
+			display: block;
+			padding: 15px 10px;
+			font-size: 14px;
+			border-bottom: 1px solid #444;
+		}
+
+		ul.right-menu li a:hover {
+			background-color: #555;
+			color: #fff;
+		}
+
+		.container {
+			padding: 10px 20px;
+		}
+
+		.mr-200 {
+			margin-right: 200px !important;
+		}
+
+		.mr-0 {
+			margin-right: 0px !important;
+		}
+
+		@media screen and (max-width: 480px) {
+
+			.mobile-menu {
+				display: block;
+			}
+
+			.right-container {
+				margin-right: -200px;
+			}
+
+			.container {
+				margin-left: 0;
+			}
+
+		}
+
+		@media screen and (min-width: 480px) {
+
+			.left-container {
+				visibility: visible;
+			}
+
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div class="mobile-menu" onclick="showMenu()">
+		<span>&equiv;</span>
+	</div>
+
+	<div class="right-container">
+		<div class="brand">
+			<h3>Brand</h3>
+		</div>
+		<ul class="right-menu">
+			<li><a href="#">Menu 1</a></li>
+			<li><a href="#">Menu 2</a></li>
+			<li><a href="#">Menu 3</a></li>
+			<li><a href="#">Menu 4</a></li>
+		</ul>
+		
+	</div>
+
+	<div class="container">
+		<h1>Welcome</h1>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+
+		var rightContainer = $('.right-container'),
+			mobileMenu = $('.mobile-menu'),
+			container = $('.container');
+
+		function showMenu() {
+
+			if(rightContainer.hasClass('mr-0')) {
+				rightContainer.removeClass('mr-0');
+				mobileMenu.removeClass('mr-200');
+				container.removeClass('mr-200');
+
+			} else {
+				rightContainer.addClass('mr-0');
+				mobileMenu.addClass('mr-200');
+				container.addClass('mr-200');
+			}
+			
+		}
+
+	</script>
+	
+</body>
+</html>
